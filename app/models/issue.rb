@@ -38,7 +38,7 @@ class Issue < ApplicationRecord
   end
 
   def active_pages(current_site)
-    GobiertoCms::Page.pages_in_collections_and_container(current_site, self).active.sort_by(&:created_at).reverse
+    GobiertoCms::Page.pages_in_collections_and_container(current_site, self).order(id: :desc)
   end
 
   private
