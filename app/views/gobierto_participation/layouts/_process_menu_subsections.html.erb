@@ -20,13 +20,18 @@
         </li>
       <% end %>
 
-      <% if try(:current_process).present? && current_process.polls_stage? %>
+      <% if try(:current_process).present? && current_process.ideas_stage? %>
         <li>
           <%= link_to t('.contributions'), gobierto_participation_process_process_contribution_containers_path(process_id: current_process.slug) %>
         </li>
       <% end %>
 
-      <li><%= todo_link_to { link_to t('.results'), '#' } %></li>
+      <% if try(:current_process).present? && current_process.results_stage? %>
+        <li>
+          <%= link_to t('.results'), '#TODO' %>
+        </li>
+      <% end %>
+
     </ul>
   </div>
 </menu>
