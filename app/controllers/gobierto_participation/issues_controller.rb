@@ -30,7 +30,7 @@ module GobiertoParticipation
     end
 
     def find_issue_events
-      @issue.events.upcoming.order(starts_at: :asc).limit(5)
+      @issue.events.published.upcoming.order(starts_at: :asc).limit(5)
     end
   end
 end
